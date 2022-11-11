@@ -25,8 +25,10 @@
 //     items[i].style.backgroundColor = '#f4f4f4';
 // }
 //get Elements by tagName
+
 var li = document.getElementsByTagName('li');
+li[1].style.backgroundColor = '#f4f4f4';
 for(var i=0;i<li.length;i++)
 {
-    li[i].style.backgroundColor = '#f4f4f4';
+    li[i].style.backgroundColor = '#f4f4f4':
 }
