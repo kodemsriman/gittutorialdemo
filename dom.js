@@ -26,9 +26,37 @@
 // }
 //get Elements by tagName
 
-var li = document.getElementsByTagName('li');
-li[1].style.backgroundColor = '#f4f4f4';
-for(var i=0;i<li.length;i++)
+// var li = document.getElementsByTagName('li');
+// li[1].style.backgroundColor = '#f4f4f4';
+// for(var i=0;i<li.length;i++)
+// {
+//     li[i].style.backgroundColor = '#f4f4f4';
+// }
+ 
+// Queryselector
+// var header = document.querySelector('#main-header');
+// header.style.borderBottom = 'solid 4px #ccc';
+
+// var input = document.querySelector('input');
+// input.value = 'Hello World';
+
+// var submit = document.querySelector('input[type="submit"]');
+// submit.value = "SEND";
+
+var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+secondItem.style.backgroundColor = 'green';
+
+var secItem = document.querySelectorAll('.list-group-item');
+secItem[1].style.color = 'green';
+
+var item = document.getElementsByClassName('list-group-item');
+var thirdItem = item[2];
+thirdItem.style.visibility = 'hidden';
+
+var odd = document.querySelectorAll('.list-group-item:nth-child(odd)');
+for(var i=0;i<odd.length;i++)
 {
-    li[i].style.backgroundColor = '#f4f4f4':
+    odd[i].style.backgroundColor = 'green';
 }
+
+
