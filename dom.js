@@ -43,20 +43,60 @@
 // var submit = document.querySelector('input[type="submit"]');
 // submit.value = "SEND";
 
-var secondItem = document.querySelector('.list-group-item:nth-child(2)');
-secondItem.style.backgroundColor = 'green';
+// var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+// secondItem.style.backgroundColor = 'green';
 
-var secItem = document.querySelectorAll('.list-group-item');
-secItem[1].style.color = 'green';
+// var secItem = document.querySelectorAll('.list-group-item');
+// secItem[1].style.color = 'green';
 
-var item = document.getElementsByClassName('list-group-item');
-var thirdItem = item[2];
-thirdItem.style.visibility = 'hidden';
+// var item = document.getElementsByClassName('list-group-item');
+// var thirdItem = item[2];
+// thirdItem.style.visibility = 'hidden';
 
-var odd = document.querySelectorAll('.list-group-item:nth-child(odd)');
-for(var i=0;i<odd.length;i++)
-{
-    odd[i].style.backgroundColor = 'green';
-}
+// var odd = document.querySelectorAll('.list-group-item:nth-child(odd)');
+// for(var i=0;i<odd.length;i++)
+// {
+//     odd[i].style.backgroundColor = 'green';
+// }
 
 
+//Traversing the dom//
+var itemList = document.querySelector('#items');
+//console.log(itemList);
+// ParentNode
+//console.log(itemList.parentNode);
+//itemList.parentNode.style.backgroundColor = '#f4f4f4';
+//console.log(itemList.parentNode.parentNode);
+//itemList.parentNode.parentNode.style.backgroundColor = 'orange';
+//console.log(itemList.parentElement);
+itemList.parentElement.style.backgroundColor = '#f4f4f4';
+//console.log(itemList.parentElement.parentElement);
+
+//creatElement
+
+//create a div
+var newDiv = document.createElement('div');
+//add id
+newDiv.id = 'hello';
+//add class
+newDiv.className = "hello1";
+//add attribute
+newDiv.setAttribute('title', 'Hello Div');
+// create text node
+var newDivText = document.createTextNode('Hello World');
+//add text to div
+newDiv.appendChild(newDivText);
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
+
+newDiv.style.fontSize = '30px';
+container.insertBefore(newDiv,h1);
+console.log(newDiv);
+console.log(itemList.firstChild);
+console.log(itemList.firstElementChild);
+console.log(itemList.lastChild);
+console.log(itemList.lastElementChild);
+console.log(itemList.nextSibling);
+console.log(itemList.nextElementSibling);
+console.log(itemList.previousSibling);
+console.log(itemList.previousElementSibling);
