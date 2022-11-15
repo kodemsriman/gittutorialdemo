@@ -61,42 +61,91 @@
 
 
 //Traversing the dom//
-var itemList = document.querySelector('#items');
-//console.log(itemList);
-// ParentNode
-//console.log(itemList.parentNode);
-//itemList.parentNode.style.backgroundColor = '#f4f4f4';
-//console.log(itemList.parentNode.parentNode);
-//itemList.parentNode.parentNode.style.backgroundColor = 'orange';
-//console.log(itemList.parentElement);
-itemList.parentElement.style.backgroundColor = '#f4f4f4';
-//console.log(itemList.parentElement.parentElement);
+// var itemList = document.querySelector('#items');
+// //console.log(itemList);
+// // ParentNode
+// //console.log(itemList.parentNode);
+// //itemList.parentNode.style.backgroundColor = '#f4f4f4';
+// //console.log(itemList.parentNode.parentNode);
+// //itemList.parentNode.parentNode.style.backgroundColor = 'orange';
+// //console.log(itemList.parentElement);
+// itemList.parentElement.style.backgroundColor = '#f4f4f4';
+// //console.log(itemList.parentElement.parentElement);
 
-//creatElement
+// //creatElement
 
-//create a div
-var newDiv = document.createElement('div');
-//add id
-newDiv.id = 'hello';
-//add class
-newDiv.className = "hello1";
-//add attribute
-newDiv.setAttribute('title', 'Hello Div');
-// create text node
-var newDivText = document.createTextNode('Hello World');
-//add text to div
-newDiv.appendChild(newDivText);
-var container = document.querySelector('header .container');
-var h1 = document.querySelector('header h1');
+// //create a div
+// var newDiv = document.createElement('div');
+// //add id
+// newDiv.id = 'hello';
+// //add class
+// newDiv.className = "hello1";
+// //add attribute
+// newDiv.setAttribute('title', 'Hello Div');
+// // create text node
+// var newDivText = document.createTextNode('Hello World');
+// //add text to div
+// newDiv.appendChild(newDivText);
+// var container = document.querySelector('header .container');
+// var h1 = document.querySelector('header h1');
 
-newDiv.style.fontSize = '30px';
-container.insertBefore(newDiv,h1);
-console.log(newDiv);
-console.log(itemList.firstChild);
-console.log(itemList.firstElementChild);
-console.log(itemList.lastChild);
-console.log(itemList.lastElementChild);
-console.log(itemList.nextSibling);
-console.log(itemList.nextElementSibling);
-console.log(itemList.previousSibling);
-console.log(itemList.previousElementSibling);
+// newDiv.style.fontSize = '30px';
+// container.insertBefore(newDiv,h1);
+// console.log(newDiv);
+// console.log(itemList.firstChild);
+// console.log(itemList.firstElementChild);
+// console.log(itemList.lastChild);
+// console.log(itemList.lastElementChild);
+// console.log(itemList.nextSibling);
+// console.log(itemList.nextElementSibling);
+// console.log(itemList.previousSibling);
+// console.log(itemList.previousElementSibling);
+
+
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
+
+//form submit event
+form.addEventListener('submit',addItem);
+//delete event
+itemList.addEventListener('click',removeItem);
+
+//Add item
+function addItem(e)
+{
+    e.preventDefault();
+    
+    //get input value
+    var newItem = document.getElementById('item').value; 
+    //creat new li element
+    var li = document.createElement('li');
+    //add class
+    li.className = 'list-group-item';
+    console.log(li);
+    //add textnode with input value
+    li.appendChild(document.createTextNode(newItem));
+    itemList.appendChild(li);
+
+    //create del button element
+    var deleteBtn = document.createElement('button');
+    //add classes to delete button
+    deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+    //append textNOde
+    deleteBtn.appendChild(document.createTextNode('X'));
+    //append button to list
+    li.appendChild(deleteBtn);
+    //append li to list
+    itemList.appendChild(li);
+}
+//remove item
+function removeItem(e)
+{
+    if(e.target.classList.contains('delete'))
+    {
+        if(confirm('Are you sure?'))
+        {
+            var li = e.target.parentElement;
+            itemList.removeChild(li);
+        }
+    }
+}
